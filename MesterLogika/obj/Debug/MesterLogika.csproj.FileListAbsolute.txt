@@ -1,0 +1,6 @@
+c:\users\black\documents\visual studio 2015\Projects\MesterLogika\MesterLogika\bin\Debug\MesterLogika.exe.config
+c:\users\black\documents\visual studio 2015\Projects\MesterLogika\MesterLogika\bin\Debug\MesterLogika.exe
+c:\users\black\documents\visual studio 2015\Projects\MesterLogika\MesterLogika\bin\Debug\MesterLogika.pdb
+c:\users\black\documents\visual studio 2015\Projects\MesterLogika\MesterLogika\obj\Debug\MesterLogika.csprojResolveAssemblyReference.cache
+c:\users\black\documents\visual studio 2015\Projects\MesterLogika\MesterLogika\obj\Debug\MesterLogika.exe
+c:\users\black\documents\visual studio 2015\Projects\MesterLogika\MesterLogika\obj\Debug\MesterLogika.pdb
