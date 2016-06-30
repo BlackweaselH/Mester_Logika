@@ -1,33 +1,16 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Console;
 
 namespace MesterLogika
 {
-
-    class Combination
-    {
-        public string Line { get; set; }
-        public int Letternumber { get; set; }
-        public string Position { get; set; }
-
-        public Combination(string line, int number, string posi)
-        {
-            this.Line = line;
-            this.Letternumber = number;
-            this.Position = posi;
-        }
-
-        public static List<Combination> Combinations = new List<Combination>();
-    }
-
     class Program
     {
-
-        public static bool FirstGenerate = true;
+        private static List<string> AllCombination = GetAll();
         public static bool GetEquals(string word, string input)
         {
             if (word == input) return true;
@@ -46,17 +29,53 @@ namespace MesterLogika
             }
             List<char> localChars = inputCharArray.Where(word.Contains).Distinct().ToList();
             string local = localChars.Aggregate<char, string>(null, (current, i) => current + (i));
-            string intlocal = localCount.Aggregate<int, string>(null, (current, i) => current + (i + ", "));
-            WriteLine(local.Length + "\tbetűt tartalmaza\t" + intlocal + "\tpoziciók helyesek");
+            string intlocal = localCount.Aggregate<int, string>(null, (current, i) => current + (i));
+            WriteLine(local.Length + "\tbetűt tartalmaza\t" + intlocal.Length + "\tpozició helyes(ek)");
             return false;
         }
 
+        public static List<string> FirsList = new List<string>();
         public static bool GetEqualsMachine()
         {
-            Random rnd =new Random();
-            string FirstCombination;
-            if (FirstGenerate) FirstCombination = GetAll()[rnd.Next(GetAll().Count)];
+            bool Finish = false;
+            string Combination = "AABB";
+            WriteLine(Combination);
+            int letternumber = int.Parse(ReadLine());
+            int Position = int.Parse(ReadLine());
+            Finish = bool.Parse(ReadLine());
+            if (letternumber == 4)
+            {
+                if (Position == 4)
+                {
+                    WriteLine("BBAA");
+                }
+                else
+                {
+                    WriteLine("ABBA");
+                    letternumber = int.Parse(ReadLine());
+                    Position = int.Parse(ReadLine());
+                    Finish = bool.Parse(ReadLine());
+                    if (Finish == false)
+                    {
+                        WriteLine("BAAB");
+                    }
+                }
+            }
+            if (letternumber == 3)
+            {
 
+            }
+            foreach (var VARIABLE in AllCombination)
+            {
+                WriteLine(VARIABLE);
+            }
+
+
+
+            Finish = bool.Parse(ReadLine());
+            if (Finish) return true;
+
+            return false;
         }
 
         public static List<string> GetAll()
