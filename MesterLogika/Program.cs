@@ -98,6 +98,12 @@ namespace MesterLogika
                         }
                     }
 
+                    if (Position == 1 && Letternumber == 3)
+                    {
+                        AllCombination = AllCombination.Where(x => x.StartsWith("AA") && x.EndsWith("B")).ToList();
+
+                    }
+
                     if (Position == 2)
                     {
                         AllCombination =
@@ -168,6 +174,7 @@ namespace MesterLogika
                                 x =>
                                     (x.StartsWith("AA") && (!x.EndsWith("AB") && !x.EndsWith("BB"))) ||
                                     (x.Contains("AB") && !x.StartsWith("AB") && !x.EndsWith("AB"))).ToList();
+
 
                 }
             }
