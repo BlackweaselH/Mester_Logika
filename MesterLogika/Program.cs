@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,19 +41,20 @@ namespace MesterLogika
             bool Finish = false;
             string Combination = "AABB";
             WriteLine(Combination);
-            int letternumber = int.Parse(ReadLine());
+            int Letternumber = int.Parse(ReadLine());
             int Position = int.Parse(ReadLine());
             Finish = bool.Parse(ReadLine());
-            if (letternumber == 4)
+
+            if (Letternumber == 4)
             {
-                if (Position == 4)
+                if (Position == 0)
                 {
                     WriteLine("BBAA");
                 }
                 else
                 {
                     WriteLine("ABBA");
-                    letternumber = int.Parse(ReadLine());
+                    Letternumber = int.Parse(ReadLine());
                     Position = int.Parse(ReadLine());
                     Finish = bool.Parse(ReadLine());
                     if (Finish == false)
@@ -61,10 +63,116 @@ namespace MesterLogika
                     }
                 }
             }
-            if (letternumber == 3)
-            {
 
+            if (Letternumber == 3)
+            {
+                if (Position == 3)
+                {
+                    AllCombination =
+                        AllCombination.Where(
+                            x =>
+                                x.StartsWith("AAB") || x.EndsWith("ABB") || (x.StartsWith("AA") && x.EndsWith("B")) ||
+                                (x.StartsWith("A") && x.EndsWith("BB"))).ToList();
+                    WriteLine("CADA");
+                    Letternumber = int.Parse(ReadLine());
+                    Position = int.Parse(ReadLine());
+                    Finish = bool.Parse(ReadLine());
+                    if (Finish) return true;
+
+                    if (Position == 0)
+                    {
+                        AllCombination =
+                            AllCombination.Where(x => !x.Contains("AAB") && !x.Contains("ABB") && !x.StartsWith("AA"))
+                                .ToList().Where(x => x.Contains("C") || x.Contains("D")).ToList();
+
+                        WriteLine(AllCombination.First());
+                        Letternumber = int.Parse(ReadLine());
+                        Position = int.Parse(ReadLine());
+                        Finish = bool.Parse(ReadLine());
+                        if (Finish) return true;
+
+                        if (Letternumber == 3)
+                        {
+                            AllCombination = AllCombination.Where(x => x.Contains("D")).ToList();
+                            WriteLine(AllCombination.Last());
+                        }
+                    }
+
+                    if (Position == 2)
+                    {
+                        AllCombination =
+                            AllCombination.Where(
+                                x =>
+                                    x.StartsWith("CA") ||
+                                    (x.Contains("AD") && (!x.EndsWith("AD") && !x.StartsWith("AD")))).ToList();
+                        WriteLine("CABB");
+                        Letternumber = int.Parse(ReadLine());
+                        Position = int.Parse(ReadLine());
+                        Finish = bool.Parse(ReadLine());
+                        if (Finish) return true;
+                        if (Letternumber == 2)
+                        {
+                            WriteLine("AADB");
+                            Letternumber = int.Parse(ReadLine());
+                            Position = int.Parse(ReadLine());
+                            Finish = bool.Parse(ReadLine());
+                            if (Finish) return true;
+                        }
+                    }
+                   
+                    if (Letternumber == 2)
+                    {
+                        WriteLine("FAEA");
+                        Letternumber = int.Parse(ReadLine());
+                        Position = int.Parse(ReadLine());
+                        if (Position == 0)
+                        {
+                            AllCombination = AllCombination.Where(x => !x.Contains("AAB") && !x.Contains("ABB") && !x.StartsWith("AA")).ToList();
+                        }
+                        AllCombination = AllCombination.Where(x => x.Contains("F") || x.Contains("E")).ToList();
+                        WriteLine(AllCombination.First());
+                        Letternumber = int.Parse(ReadLine());
+                        Position = int.Parse(ReadLine());
+                        Finish = bool.Parse(ReadLine());
+                        if (Finish) return true;
+                        if (Letternumber == 3)
+                        {
+                            AllCombination = AllCombination.Where(x => x.Contains("E")).ToList();
+                            WriteLine(AllCombination.First());
+                            Letternumber = int.Parse(ReadLine());
+                            Position = int.Parse(ReadLine());
+                            Finish = bool.Parse(ReadLine());
+                            if (Finish) return true;
+                            else
+                            {
+                                WriteLine(AllCombination.Last());
+                            }
+                        }
+                    }
+                    if (Letternumber == 3)
+                    {
+                        AllCombination = AllCombination.Where(x => !x.Contains("AA") && (x.Contains("E") || x.Contains("F"))).ToList();
+                        foreach (var VARIABLE in AllCombination)
+                        {
+                            WriteLine(VARIABLE);
+                        }
+                    }
+
+                }
+                if (Position == 2)
+                {
+                    AllCombination =
+                        AllCombination.Where(x => (x.Contains("A") && x.Contains("B")))
+                            .ToList()
+                            .Where(
+                                x =>
+                                    (x.StartsWith("AA") && (!x.EndsWith("AB") && !x.EndsWith("BB"))) ||
+                                    (x.Contains("AB") && !x.StartsWith("AB") && !x.EndsWith("AB"))).ToList();
+
+                }
             }
+
+
             foreach (var VARIABLE in AllCombination)
             {
                 WriteLine(VARIABLE);
