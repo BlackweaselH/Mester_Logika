@@ -5,7 +5,7 @@ kigenerált értéket fog adni hanem egy constans "AABB". Ezzel a módszerrel ha
 nagyon könnyen kilehet szűrni Ezek után Kiadd egy "CADA" ami kiszűri hogy tartalmaz-e "c"-t vagy "d"-t ha nem akkor már csak f-e
 tartalmazhat és átíányítja ma egfelelő ágba.A kód 
 jelenleg csak "AABB" felismerésének egy részét tartalmazza. Ez később át lesz alakítva egy általánosan felhasználható metódusra. 
-Ezt az eljárást a "Five Guess" algoritmusból alakítottam ki, így a kitalálás 10 tippelés belül maradhat a legrosszabb esetben.
+Ezt az eljárást a "Five Guess" algoritmusból alakítottam ki (Igen, egy kis puska ott van a dologban :)), így a kitalálás 10 tippelés belül maradhat a legrosszabb esetben.
 
 Az első része mikor te találod ki a gondoltat ez teljes mértékben működik. 
 
