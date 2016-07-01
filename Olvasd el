@@ -1,0 +1,11 @@
+Leírás
+
+Amikor a gép találja ki a sorozatot akkor lehet látni, hogy Kezdésképpen nem egy véletlenül 
+kigenerált értéket fog adni hanem egy constans "AABB". Ezzel a módszerrel ha A-t vagy B-t vagy esetleg mindkettőt tartalmaz a sorozat
+nagyon könnyen kilehet szűrni Ezek után Kiadd egy "CADA" ami kiszűri hogy tartalmaz-e "c"-t vagy "d"-t ha nem akkor már csak f-e
+tartalmazhat és átíányítja ma egfelelő ágba.A kód 
+jelenleg csak "AABB" felismerésének egy részét tartalmazza. Ez később át lesz alakítva egy általánosan felhasználható metódusra. 
+Ezt az eljárást a "Five Guess" algoritmusból alakítottam ki, így a kitalálás 10 tippelés belül maradhat a legrosszabb esetben.
+
+Az első része mikor te találod ki a gondoltat ez teljes mértékben működik. 
+
